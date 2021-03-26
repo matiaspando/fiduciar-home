@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>fiduci.ar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+  * {
+    border: 2px none red;
+  }
+
+  iframe { 
+       width: 500px; /* It should not be 100% */ 
+       height: 1500px;
+       margin-left: auto;   /* Automatic margin from left */ 
+       margin-right: auto; /* Automatic margin from right */ 
+      }
+
+</style>
+
+<script>
+function showHide() {
+  var x = document.getElementById("contacto");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="w3-container w3-blue">
+  <h1>fiduci.ar</h1> 
+  <p>Reservamos el valor de tus activos</p> 
+</div>
+
+<div class="w3-row-padding">
+  <div class="w3-third">
+    <h2>Qué hacemos</h2>
+    <p>Generamos proyectos sobre bienes tangibles.</p>
+    <p>Brindamos la posibilidad de invertir en proyectos reales con personas reales.</p>
+    <button>Conocer mas...</button>
+  </div>
+
+  <div class="w3-third">
+    <h2>Cómo lo hacemos</h2>
+    <p>Adquirimos activos depreciados y agregamos valor para su posterior enajenación.</p> 
+    <p>Todo el proceso es transparente y mantenemos la comunicación permamente sobre cambios en los proyectos.</p>
+    <button>Conocer mas...</button>
+  </div>
+
+  <div class="w3-third">
+    <h2>Qué proyectos tenemos</h2>
+
+    <p>Algunos de los proyectos que están en ejecución</p>
+    <ul>
+      <li>Inmueble en Santiago del Estero ideal para restaurant</li>
+      <li>Edificio sin terminar en Tucumán con excelente ubicación</li>
+      <li>Esquina en Salta para emprendimiento comercial</li>
+    </ul>
+    <button>Conocer mas...</button>
+  </div>
+</div>
+
+<div class="w3-container">
+  <h3>
+    <div>
+      <button class="w3-button w3-blue" onclick="showHide();">CONTACTENOS</button> 
+    </div>
+  </h3> 
+</div>
+
+
+<div class="w3-row-padding" id="contacto" style="display:none">
+  <div class="w3-third">
+    <h2>Contacto</h2>
+    <p>Ingrese sus datos para poder acceder a los beneficios de pertenecer a fiduciar</p>
+    <p>Sus datos se mantendran en confidencialidad</p>
+  </div>
+
+  <div class="w3-third">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUR9qpkSurIPjzsVVm2BZ7ObGtBQpzIAtjwD-e2YVyTc1-hg/viewform?embedded=true" width="640" height="1455" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+  </div>
+
+
+</div>
+
+
+
+</body>
+</html>
