@@ -11,7 +11,7 @@
 
   iframe { 
        width: 500px; /* It should not be 100% */ 
-       height: 1500px;
+       aheight: 1500px;
        margin-left: auto;   /* Automatic margin from left */ 
        margin-right: auto; /* Automatic margin from right */ 
       }
@@ -19,75 +19,166 @@
 </style>
 
 <script>
-function showHide() {
-  var x = document.getElementById("contacto");
-  if (x.style.display === "none") {
+function showHide(name) {
+  console.log('showHide ')
+
+  var x = document.getElementById(name);
+
+  console.log('x.style.display '+x.style.display)
+  if (x.style.display === "none" || !x.style.display) {
     x.style.display = "block";
   } else {
-    x.style.display = "none";
+       x.style.display = "none";
   }
+}
+
+
+function showLogin() {
+   alert('ir a Iniciar sesion')
+}
+
+function closeModal() {
+  console.log('closeing modal ')
+  var x = document.getElementById('contacto');
+  if (x.style.display === "none") {
+    console.log('nada------ ')
+    return
+  } 
+
+  console.log('close modal------ ')
+  x.style.display = "none";
+}
+
+function showOneHideOthers(name) {
+
+  let lista = ['que','como','proyectos']
+
+
+  lista.forEach(l=>{
+        console.log(l);
+        var x = document.getElementById(l);
+        console.log(x);
+
+        if (name==l) {
+          x.style.display = "block";
+        } else {
+            x.style.display = "none";
+
+        }
+
+        // if (x.style.display === "none") {
+        //   x.style.display = "block";
+        // } else {
+        //   if (name=='contacto') {
+        //      x.style.display = "none";
+        //   }
+        // }
+  })
+
+  //   console.log(x)
+  //     var x = document.getElementById(l);
+
+  //     console.log(x)
+  //     // if (x.style.display === "none") {
+  //     //   x.style.display = "block";
+  //     // } else {
+  //     //   if (name=='contacto') {
+  //     //      x.style.display = "none";
+  //     //   }
+  //     // }
+  //     // window.location.href = "#"+name
+  // }
+
 }
 </script>
 </head>
-<body>
+<body >
 
 <div class="w3-container w3-blue">
-  <h1>fiduci.ar</h1> 
-  <p>Reservamos el valor de tus activos</p> 
+<div class="w3-row-padding">
+  <div class="w3-third">
+    <img src="./img/logo_redondo.png" height="100px">
+  </div>
+
+  <div class="w3-third w3-center">
+    <h1>fiduci.ar</h1> 
+    <p>Reservamos el valor de tus activos</p> 
+  </div>
+
+  <div class="w3-third w3-right-align">
+    <div>
+       <button class="w3-button w3-blue" onclick="">Iniciar sesión</button>
+     </div>
+     <div>
+    <button class="w3-button w3-blue" onclick="showHide('contacto');">Registrarse</button>
+    </div>
+  </div>
+
+</div>
 </div>
 
 <div class="w3-row-padding">
   <div class="w3-third">
+    <button class="w3-button w3-blue" onclick="showOneHideOthers('que');">Qué hacemos</button>
+  </div>
+
+  <div class="w3-third">
+    <button class="w3-button w3-blue" onclick="showOneHideOthers('como');">Cómo lo hacemos</button>
+  </div>
+
+  <div class="w3-third">
+    <button class="w3-button w3-blue" onclick="showOneHideOthers('proyectos');">Proyectos</button>
+  </div>
+</div>
+
+
+<div class="w3-modal" id="contacto" onclick="closeModal()">
+  <div class="w3-modal-content" style="margin-left:auto;margin-right:auto">
+    <iframe style="display:block;" src="https://docs.google.com/forms/d/e/1FAIpQLSfUR9qpkSurIPjzsVVm2BZ7ObGtBQpzIAtjwD-e2YVyTc1-hg/viewform?embedded=true" width="640" height="1100" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+  </div>
+</div>
+
+<div class="w3-row-padding" id="que" style="display:none">
+  <div class="w3-third">
     <h2>Qué hacemos</h2>
     <p>Generamos proyectos sobre bienes tangibles.</p>
     <p>Brindamos la posibilidad de invertir en proyectos reales con personas reales.</p>
-    <button>Conocer mas...</button>
+    <button class="w3-button w3-blue" onclick="showLogin('que');">Conocer mas...</button>
   </div>
+</div>
 
+
+<div class="w3-row-padding" id="como" style="display:none">
   <div class="w3-third">
     <h2>Cómo lo hacemos</h2>
     <p>Adquirimos activos depreciados y agregamos valor para su posterior enajenación.</p> 
     <p>Todo el proceso es transparente y mantenemos la comunicación permamente sobre cambios en los proyectos.</p>
-    <button>Conocer mas...</button>
+    <button class="w3-button w3-blue" onclick="showLogin('como');">Conocer mas...</button>
   </div>
+</div>
 
+<div class="w3-row-padding" id="proyectos" style="display:none">
   <div class="w3-third">
     <h2>Qué proyectos tenemos</h2>
-
     <p>Algunos de los proyectos que están en ejecución</p>
     <ul>
       <li>Inmueble en Santiago del Estero ideal para restaurant</li>
       <li>Edificio sin terminar en Tucumán con excelente ubicación</li>
       <li>Esquina en Salta para emprendimiento comercial</li>
     </ul>
-    <button>Conocer mas...</button>
+    <button class="w3-button w3-blue" onclick="showLogin('proyectos');">Conocer mas...</button>
   </div>
 </div>
 
 <div class="w3-container">
   <h3>
     <div>
-      <button class="w3-button w3-blue" onclick="showHide();">CONTACTENOS</button> 
+      <button class="w3-button w3-blue" onclick="showHide('contacto');">CONTACTENOS</button> 
     </div>
   </h3> 
 </div>
 
-
-<div class="w3-row-padding" id="contacto" style="display:none">
-  <div class="w3-third">
-    <h2>Contacto</h2>
-    <p>Ingrese sus datos para poder acceder a los beneficios de pertenecer a fiduciar</p>
-    <p>Sus datos se mantendran en confidencialidad</p>
-  </div>
-
-  <div class="w3-third">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfUR9qpkSurIPjzsVVm2BZ7ObGtBQpzIAtjwD-e2YVyTc1-hg/viewform?embedded=true" width="640" height="1455" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-  </div>
-
-
-</div>
-
-
+<script>showOneHideOthers('que')</script>
 
 </body>
 </html>
