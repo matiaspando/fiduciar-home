@@ -20,11 +20,8 @@
 
 <script>
 function showHide(name) {
-  console.log('showHide ')
-
   var x = document.getElementById(name);
 
-  console.log('x.style.display '+x.style.display)
   if (x.style.display === "none" || !x.style.display) {
     x.style.display = "block";
   } else {
@@ -38,56 +35,24 @@ function showLogin() {
 }
 
 function closeModal() {
-  console.log('closeing modal ')
   var x = document.getElementById('contacto');
   if (x.style.display === "none") {
-    console.log('nada------ ')
     return
   } 
 
-  console.log('close modal------ ')
   x.style.display = "none";
 }
 
 function showOneHideOthers(name) {
-
   let lista = ['que','como','proyectos']
-
-
   lista.forEach(l=>{
-        console.log(l);
         var x = document.getElementById(l);
-        console.log(x);
-
         if (name==l) {
           x.style.display = "block";
         } else {
             x.style.display = "none";
-
         }
-
-        // if (x.style.display === "none") {
-        //   x.style.display = "block";
-        // } else {
-        //   if (name=='contacto') {
-        //      x.style.display = "none";
-        //   }
-        // }
   })
-
-  //   console.log(x)
-  //     var x = document.getElementById(l);
-
-  //     console.log(x)
-  //     // if (x.style.display === "none") {
-  //     //   x.style.display = "block";
-  //     // } else {
-  //     //   if (name=='contacto') {
-  //     //      x.style.display = "none";
-  //     //   }
-  //     // }
-  //     // window.location.href = "#"+name
-  // }
 
 }
 </script>
